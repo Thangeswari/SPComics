@@ -1,4 +1,34 @@
-﻿function CreateJSScriptSiteDetails($SiteURL,$User,$loadObject,$SpProperty,$propertyName,$MultiResult,$itemProperty){
+﻿<#
+.Synopsis
+   A simple code to create JS code to see various site details.
+.DESCRIPTION
+   Run the code to create the code that is uploaded into SitePages library.
+   Download SharePoint Online Components if you have not done so already.
+.EXAMPLE
+   For single site property:
+    $User = "admin@xxx.onmicrosoft.com"
+    $SiteURL = "https://xxx.sharepoint.com/sites/dev"
+    $loadObject="Usage"
+    $propertyName="Storage"
+    $SpProperty="get_usage().get_storage()"
+    $MultiResult=$false
+
+CreateJSScriptSiteDetails -SiteURL $SiteURL -User $User -loadObject $loadObject -propertyName $propertyName -SpProperty $SpProperty -MultiResult $MultiResult
+
+.EXAMPLE
+   For multiple items as result:
+   $User = "admin@xxx.onmicrosoft.com"
+   $SiteURL = "https://xxx.sharepoint.com/sites/dev"
+   $loadObject="RecycleBin"
+   $propertyName="RecycleBin"
+   $SpProperty="get_recycleBin()"
+   $MultiResult=$true
+   $itemProperty="get_leafName()"
+
+   CreateJSScriptSiteDetails -SiteURL $SiteURL -User $User -loadObject $loadObject -propertyName $propertyName -SpProperty $SpProperty -MultiResult $MultiResult -itemProperty $itemProperty
+
+#>
+function CreateJSScriptSiteDetails($SiteURL,$User,$loadObject,$SpProperty,$propertyName,$MultiResult,$itemProperty){
 
 #Download Sharepoint online client components
 
