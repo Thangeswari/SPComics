@@ -1,7 +1,7 @@
 ﻿#CRUD Series 
 
 #Read
-function Read-SPOnPremiseObject($targetSite,$User,$restUrl){
+function Read-SPOnPremiseObject($targetSite,$UserName,$restUrl){
 $targetSiteUri = [System.Uri]$targetSite
 $credentials = Get-Credential -UserName $UserName -Message "Enter Password"
 # Set  Header
@@ -18,7 +18,7 @@ return $results
 }
 
 #Create
-function Create-SPOnPremiseObject($targetSite,$User,$restUrl,$data){
+function Create-SPOnPremiseObject($targetSite,$UserName,$restUrl,$data){
 $targetSiteUri = [System.Uri]$targetSite
 $credentials = Get-Credential -UserName $UserName -Message "Enter Password"
 # Set  Header
@@ -41,7 +41,7 @@ return $response
 }
 
 #Update
-function Update-SPOnPremiseObject($targetSite,$User,$restUrl,$data,$etag,$putonly){
+function Update-SPOnPremiseObject($targetSite,$UserName,$restUrl,$data,$etag,$putonly){
 $targetSiteUri = [System.Uri]$targetSite
 $credentials = Get-Credential -UserName $UserName -Message "Enter Password"
 # Set  Header
@@ -75,7 +75,7 @@ return $response
 }
 
 #Delete
-function Delete-SPOnPremiseObject($targetSite,$User,$restUrl){
+function Delete-SPOnPremiseObject($targetSite,$UserName,$restUrl){
 $targetSiteUri = [System.Uri]$targetSite
 $credentials = Get-Credential -UserName $UserName -Message "Enter Password"
 # Set  Header
